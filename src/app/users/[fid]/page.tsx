@@ -8,7 +8,7 @@ export default async function Page({ params }: {
     const getUnfollows = await fetch('https://data.hubs.neynar.com/api/queries/25/results?api_key=AVrlfYkQzoguw6lsL4yrr3eHz7Xqbk2BSlXqADF4', {
         method: 'POST',
         body: JSON.stringify({
-            "max_age": 0,
+            "max_age": 1800,
             "parameters": {
                 "fid": params.fid
             }
@@ -75,19 +75,35 @@ export default async function Page({ params }: {
     const userResponse = await getUser.json();
     var user = userResponse.result.user;
 
+
+
+
+
+
+
+
+
+
     return (
-        <div>
-            <h1>You are looking at: { user ? "@" + user.username : params.fid }</h1>
-            {unfollows.length != 0 ? unfollows.map((event: any) => (
-                <div>
-                    <h3>{ event.username } unfollowed { user.username } on { new Date(event.deleted_at).toLocaleDateString() }</h3>
-                </div>
-            )) : finalResponse.job.status != 3 ? <div>
-                    <h3>Loading...</h3>
-                </div> : <div>
-                    <h3>Oops!</h3>
-                    <p>Looks like no one unfollowed you.</p>
-                </div>}
-        </div>
+        <main>
+            <a>Back home</a>
+            <div>
+                <h1>{ user ? "@" + user.username : params.fid }</h1>
+            </div>
+            <div>
+                {unfollows.length != 0 ? unfollows.map((event: any) => (
+                    <div>
+                        <a>{ new Date(event.deleted_at).toLocaleString() }</a>
+                        <h3><a href={"/users/" + event.fid}>{ event.username }</a> unfollowed <a href={"/users/" + event.target_fid}>{ user.username }</a></h3>
+                    </div>
+                )) : finalResponse.job.status != 3 ? <div>
+                        <h3>Loading...</h3>
+                    </div> : <div>
+                        <h3>Oops!</h3>
+                        <p>Looks like no one unfollowed you.</p>
+                    </div>}
+                    <a>No more unfollows!</a>
+            </div>
+        </main>
     )
 }
