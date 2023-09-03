@@ -7,10 +7,7 @@ export default async function Home() {
   const getUnfollows = await fetch('https://data.hubs.neynar.com/api/queries/27/results?api_key=3e3S53iSS75Dg1elvsrkL78hWYxyUR93JM8aHz2p', {
     method: 'POST',
     body: JSON.stringify({
-        "max_age": 0,
-        "parameters": {
-            "fid": 5620
-        }
+        "max_age": 360,
     }),
   })
   const unfollowsResponse = await getUnfollows.json(); // Response for getting unfollow data
@@ -76,11 +73,15 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
+      <div className="header">
+        <h1>🌶️ Spicecast</h1>
+      </div>
       <div>
-        <h1>Most recently unfollowed:</h1>
+        <h2>Recently unfollowed</h2>
         {unfollows.length != 0 ? unfollows.map((event: any) => (
           <div>
-            <h3><a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed <a href={"/users/" + event.target_fid}>{ event.user2_username }</a> on { new Date(event.deleted_at).toLocaleString() }</h3>
+            <a>{ new Date(event.deleted_at).toLocaleDateString() }</a>
+            <h3><a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed <a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
           </div>
         )) : finalResponse.job.status != 3 ? <div>
               <h3>Loading...</h3>
@@ -88,6 +89,7 @@ export default async function Home() {
             <h3>Oops!</h3>
             <p>Looks like no one unfollowed you.</p>
           </div>}
+          <a>No more unfollows!</a>
       </div>
     </main>
   )
