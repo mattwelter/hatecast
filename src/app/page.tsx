@@ -1,56 +1,24 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import postgres from 'postgres'
 
 export default async function Home() {
 
   // GET most recent unfollows
-  const getUnfollows = await fetch('https://data.hubs.neynar.com/api/queries/27/results?api_key=3e3S53iSS75Dg1elvsrkL78hWYxyUR93JM8aHz2p', {
-    method: 'POST',
-    body: JSON.stringify({
-        "max_age": 360,
-    }),
-  })
-  const unfollowsResponse = await getUnfollows.json(); // Response for getting unfollow data
-  console.log("unfollowsResponse", unfollowsResponse)
+  const sql = postgres('postgres://b8d150:91A1C66F-B750-4790-B81F-D11822764EAE@44.200.139.115:5432/farcaster')
 
-
-  // GET job
-  async function fetchJob(jobId: string) {
-    let response;
-    
-    while (true) {
-      const getJob = await fetch(`https://data.hubs.neynar.com/api/jobs/${jobId}`, {
-        method: 'GET',
-        headers: { "Authorization": "Key FCvG9nqu9WJ2AY7SCywujJz96x3hyDqq4XUn1wiH" },
-        cache: 'no-store'
-      });
-      response = await getJob.json();
-      console.log("Job response ->", response)
-      if (response.job.status === 3) {
-        break; // Exit the loop when status is 3
-      }
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Add some delay before making the next request (e.g., to avoid rate limiting)
+  async function getUnfollows() {
+      const data = await sql`
+        SELECT *
+        FROM links
+        WHERE deleted_at IS NOT null
+        ORDER BY deleted_at DESC
+        LIMIT 10;
+      `
+      return data
     }
-    return response;
-  }
-  const finalResponse = await fetchJob(unfollowsResponse.job.id);
-
-
-  // GET job's query results
-  const getQueryResults = await fetch(`https://data.hubs.neynar.com/api/query_results/${finalResponse.job.query_result_id}`, {
-    method: 'GET', headers: { "Authorization": "Key FCvG9nqu9WJ2AY7SCywujJz96x3hyDqq4XUn1wiH" }
-  })
-  const queryResultsResponse = await getQueryResults.json();
-  console.log("queryResultsResponse", queryResultsResponse.query_result.data.rows[queryResultsResponse.query_result.data.rows.length-1])
-
-
-
-  var unfollows = []; // Init array of unfollows
-
-  // If response is available, add unfollows to array
-  if (queryResultsResponse.query_result){
-    unfollows = queryResultsResponse.query_result.data.rows;
-  };
+  const unfollows = await getUnfollows()
+  console.log(unfollows)
 
   // Sort unfollows by "Most recent" first
   unfollows.sort(function(a: any, b: any){
@@ -74,22 +42,25 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <div className="header">
-        <h1>🌶️ Spicecast</h1>
+        <h1>😡 Hatecast</h1>
+        <p>Check to see who unfollowed you on Farcaster.</p>
+        <form>
+          <input placeholder="Search by username (or fid)" />
+          <button>Check</button>
+        </form>
       </div>
       <div>
-        <h2>Recently unfollowed</h2>
+        <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
         {unfollows.length != 0 ? unfollows.map((event: any) => (
-          <div>
-            <a>{ new Date(event.deleted_at).toLocaleDateString() }</a>
-            <h3><a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed <a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
+          <div className="unfollowCard">
+            <a>{ new Date(event.deleted_at).toLocaleString() }</a>
+            <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
           </div>
-        )) : finalResponse.job.status != 3 ? <div>
-              <h3>Loading...</h3>
-          </div> : <div>
+        )) : <div>
             <h3>Oops!</h3>
             <p>Looks like no one unfollowed you.</p>
           </div>}
-          <a>No more unfollows!</a>
+          <a className="mostRecentCaption">Only showing 10 most recent</a>
       </div>
     </main>
   )
