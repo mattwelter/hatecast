@@ -1,0 +1,5 @@
+- Add Inter font
+- Process.env, hide all the classified credentials
+- Add "search by username/fid" input field functionality to homepage
+- Add 2 tabs on user profile
+- 
