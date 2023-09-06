@@ -55,10 +55,7 @@ export default async function Home() {
       <div className="header">
         <h1>😡 Hatecast</h1>
         <p>Check to see who unfollowed you on Farcaster.</p>
-        <form>
-          <input id="searchUsernameFid" name="searchUsernameFid" placeholder="Search by username (or fid)" />
-          <button id="submit" onClick={Search}>Check</button>
-        </form>
+        <Search />
       </div>
       <div>
         <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
