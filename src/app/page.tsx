@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import postgres from 'postgres'
 import Search from './search'
+import moment from 'moment'
 
 export default async function Home() {
 
@@ -26,10 +27,8 @@ export default async function Home() {
   });
 
   for(let i=0; i<unfollows.length; i++){
-    var date = new Date(unfollows[i].deleted_at).toLocaleString("en-US", {
-      localeMatcher: "best fit",
-      timeZoneName: "short"
-    });
+    let hours = new Date(unfollows[i].deleted_at).getHours();
+    let date = new Date(unfollows[i].deleted_at).setHours(hours-7)
     unfollows[i].local_date = date
   }
 
@@ -61,7 +60,7 @@ export default async function Home() {
         <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
         {unfollows.length != 0 ? unfollows.map((event: any) => (
           <div className="unfollowCard">
-            <a>{ new Date(event.local_date).toLocaleString() }</a>
+            <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
             <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
           </div>
         )) : <div>

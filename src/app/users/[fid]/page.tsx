@@ -1,5 +1,6 @@
 // import { getSSLHubRpcClient } from '@farcaster/hub-nodejs';
 import postgres from 'postgres'
+import moment from 'moment'
 
 export default async function Page({ params }: {
     params: { fid: string }
@@ -27,6 +28,12 @@ export default async function Page({ params }: {
         return new Date(b.deleted_at).valueOf() - new Date(a.deleted_at).valueOf();
     });
 
+    for(let i=0; i<unfollows.length; i++){
+        let hours = new Date(unfollows[i].deleted_at).getHours();
+        let date = new Date(unfollows[i].deleted_at).setHours(hours-7)
+        unfollows[i].local_date = date
+      }
+
     // Get username for each fid
     if (unfollows.length > 0){
         for (let i=0; i<unfollows.length; i++){
@@ -52,7 +59,7 @@ export default async function Page({ params }: {
             <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
                 {unfollows.length != 0 ? unfollows.map((event: any) => (
                     <div className="unfollowCard">
-                        <a>{ new Date(event.deleted_at).toLocaleString() }</a>
+                        <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
                         <h3>@<a href={"/users/" + event.fid}>{ event.username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ user.username }</a></h3>
                     </div>
                 )) : <div>
