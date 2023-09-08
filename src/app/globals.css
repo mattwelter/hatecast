@@ -79,7 +79,7 @@ main {
 
 .unfollowCard h3 a {
     /* text-decoration-line: underline; */
-    transition: 0.125s ease-in;
+    transition: 0.125s ease;
     padding-bottom: 1px;
     border-bottom: 1px solid white;
 }
@@ -92,17 +92,6 @@ main {
     letter-spacing: 0.8px;
     padding-top: 8px;
     display: block;
-}
-
-.search a {
-    color: #FFF;
-    opacity: 0.5;
-    text-align: center;
-    font-size: 12px;
-    letter-spacing: 0.8px;
-    display: block;
-    margin-top: -32px;
-    margin-bottom: 24px;
 }
 
 .backButton {
@@ -144,7 +133,33 @@ main {
 .header form button {
     border: 1px solid #A46CEB; /* Just a little styling to make it pretty */
     background: #A46CEB;
-    padding: 2px 6px;
-    margin: 0px 0px;
+    padding: 6px 12px;
+    margin-left: 8px;
+    border-radius: 4px;
     color: white;
+    transition: 0.125s ease;
+}
+
+.header form button:hover {
+    opacity: 0.65;
+}
+
+.search a {
+    color: #FFF;
+    opacity: 0.5;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-top: -32px;
+    margin-bottom: 24px;
+}
+
+.search input {
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+::-webkit-input-placeholder {
+   color: rgb(174, 170, 199) !important;
 }
