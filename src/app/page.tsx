@@ -3,11 +3,12 @@ import styles from './page.module.css'
 import postgres from 'postgres'
 import Search from './search'
 import moment from 'moment'
+import { Suspense } from 'react'
 
 export default async function Home() {
 
   // GET most recent unfollows
-  const sql = postgres('postgres://b8d150:91A1C66F-B750-4790-B81F-D11822764EAE@44.200.139.115:5432/farcaster')
+  const sql = postgres(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`)
 
   async function getUnfollows() {
     const data = await sql`
@@ -37,8 +38,8 @@ export default async function Home() {
   // Get username for each fid
   if (unfollows.length > 0){
     for (let i=0; i<unfollows.length; i++){
-      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=91A1C66F-B750-4790-B81F-D11822764EAE&fid=${unfollows[i].fid}`, { method: "GET" });
-      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=91A1C66F-B750-4790-B81F-D11822764EAE&fid=${unfollows[i].target_fid}`, { method: "GET" });
+      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
+      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].target_fid}`, { method: "GET" });
       
       const user1Response = await getUser1.json();
       const user2Response = await getUser2.json();
@@ -54,20 +55,24 @@ export default async function Home() {
       <div className="header">
         <h1>😡 Hatecast</h1>
         <p>Check to see who unfollowed you on Farcaster.</p>
-        <Search />
+        <Suspense fallback={<p>Loading search...</p>}>
+          <Search />
+        </Suspense>
       </div>
       <div>
         <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
-        {unfollows.length != 0 ? unfollows.map((event: any) => (
-          <div className="unfollowCard">
-            <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
-            <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
-          </div>
-        )) : <div>
-            <h3>Oops!</h3>
-            <p>Looks like no one unfollowed you.</p>
-          </div>}
-          <a className="mostRecentCaption">Only showing 10 most recent</a>
+        <Suspense fallback={<p>Loading test...</p>}>
+          {unfollows.length != 0 ? unfollows.map((event: any) => (
+            <div className="unfollowCard">
+              <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
+              <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
+            </div>
+          )) : <div>
+              <h3>Oops!</h3>
+              <p>Looks like no one unfollowed you.</p>
+            </div>}
+        </Suspense>
+        <a className="mostRecentCaption">Only showing 10 most recent</a>
       </div>
     </main>
   )

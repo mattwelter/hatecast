@@ -7,7 +7,7 @@ export default async function Page({ params }: {
 }) {
 
     // GET unfollows from user/:fid
-    const sql = postgres('postgres://b8d150:91A1C66F-B750-4790-B81F-D11822764EAE@44.200.139.115:5432/farcaster')
+    const sql = postgres(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`)
 
     async function getUnfollows() {
         const data = await sql`
@@ -37,14 +37,14 @@ export default async function Page({ params }: {
     // Get username for each fid
     if (unfollows.length > 0){
         for (let i=0; i<unfollows.length; i++){
-            const getObject = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=91A1C66F-B750-4790-B81F-D11822764EAE&fid=${unfollows[i].fid}`, { method: "GET" });
+            const getObject = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
             const objectResponse = await getObject.json();
             unfollows[i].username = objectResponse.result.user.username;
         }
     }
 
     // Get username for target_fid
-    const getUser = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=91A1C66F-B750-4790-B81F-D11822764EAE&fid=${params.fid}`, { method: "GET" });
+    const getUser = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${params.fid}`, { method: "GET" });
     const userResponse = await getUser.json();
     var user = userResponse.result.user;
 
