@@ -1,6 +1,7 @@
 import styles from './page.module.css'
 import { Suspense } from 'react'
 import HomeFeed from './components/HomeFeed'
+import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       </div>
       <div>
         <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
-        <Suspense fallback={<p>Loading test...</p>}>
+        <Suspense fallback={<LoadingFeed />}>
           <HomeFeed />
         </Suspense>
         <a className="mostRecentCaption">Only showing 10 most recent</a>
