@@ -160,6 +160,13 @@ main {
     border-radius: 4px;
 }
 
+.search button:disabled,
+.search button[disabled] {
+    background: #8e8c91;
+    color: #c7c3d0;
+    border: 1px solid #8e8c91;
+}
+
 ::-webkit-input-placeholder {
    color: rgb(174, 170, 199) !important;
 }

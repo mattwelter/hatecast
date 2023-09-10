@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Page() {
   const router = useRouter()
 
-  const [username, updateUsername] = useState('');
+  const [username, updateUsername] = useState<string>('');
 
   const setUsername = (event: any) => {
     updateUsername(event.target.value);
@@ -25,7 +25,7 @@ export default function Page() {
     <div className="search">
       <form>
         <input id="searchUsernameFid" name="searchUsernameFid" placeholder="Search by username" onChange={setUsername} value={username}/>
-        <button type="button" onClick={buttonClick}>Check User</button>
+        <button type="button" disabled={!username} onClick={buttonClick}>Check User</button>
       </form>
       <a>Search by fid, or ENS, is not supported.</a>
     </div>
