@@ -13,7 +13,7 @@ export default async function Page({ params }: {
     return (
         <main>
             <a className="backButton" href="/">Go Back Home</a>
-            <div className="header">
+            <div className="header userFeedHeader">
                 <h1>{ user ? "@" + user.username : params.fid }</h1>
             </div>
             <div>
