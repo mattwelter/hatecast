@@ -1,10 +1,7 @@
-import postgres from 'postgres'
 import moment from 'moment'
+import sql from '../db.js'
 
 export default async function HomeFeed() {
-
-  // GET most recent unfollows
-  const sql = postgres(`postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`)
 
   async function getUnfollows() {
     const data = await sql`
