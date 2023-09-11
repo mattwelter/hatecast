@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "Next PWA Test",
-    "description": "test app",
-    "short_name": "Next PWA Test",
+    "name": "Hatecast",
+    "description": "1B1A1F",
+    "short_name": "Hatecast",
     "icons": [
         {
             "src": "/icon-192x192.png",
