@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+// import Head from 'next/head'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -24,11 +25,18 @@ export default function RootLayout({
   return (
     <>
       <head>
-        <title>Hatecaster</title>
+        <title>Hatecast</title>
         <meta name="description" content="Reveal your unfollowers."/>
         <meta property="og:title" content="Social Title for Cool Page" />
         <meta property="og:description" content="Reveal your unfollowers."/>
-        <meta property="og:image" content="https://example.com/images/cool-page.jpg" />
+
+        <link rel="shortcut icon" href="/images/hatecast_favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/hatecast_favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/hatecast_favicon.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/hatecast_favicon.png"/>
+        <link rel="icon" type="image/x-icon" href="/images/hatecast_favicon.png" />
+
+        <meta property="og:image" content="/" />
       </head>
       <html lang="en" className={inter.className}>
         <body>{children}</body>

@@ -27,12 +27,22 @@ main {
     margin-top: 24px;
 }
 
+.header_h1 {
+    display: flex;
+    height: 42px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 244px;
+    margin-bottom: 10px;
+}
+
 .header h1 {
     font-size: 42px;
     font-weight: 700;
-    line-height: normal;
+    line-height: 42px;
     color: #FFF;
     text-align: center;
+    padding: 0px 0px 0px 10px;
 }
 
 .header p {
@@ -55,6 +65,7 @@ main {
     text-align: center;
     margin: 12px 0px;
     padding: 24px 24px 36px 24px;
+    border-radius: 4px;
 }
 
 .unfollowCard > a {
@@ -173,4 +184,19 @@ main {
 
 ::-webkit-input-placeholder {
    color: rgb(174, 170, 199) !important;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+      padding: 0px 8px;
+    }
+    .backButton {
+        margin-left: 8px;
+    }
+    .unfollowCard {
+        border-radius: 0px;
+    }
+    .unfollowCard h3 {
+        line-height: 150%;
+    }
 }

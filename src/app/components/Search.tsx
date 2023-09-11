@@ -15,7 +15,7 @@ export default function Page() {
   const buttonClick = async () => {
     console.log(username)
     var string = username.replaceAll(" ", "").replaceAll("@", "")
-    const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=91A1C66F-B750-4790-B81F-D11822764EAE&username=${string}`, { method: "GET" });
+    const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&username=${string}`, { method: "GET" });
     const user1Response = await getUser1.json();
     console.log(user1Response)
     router.push(`/users/${user1Response.result.user.fid}`)

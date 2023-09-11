@@ -29,8 +29,8 @@ export default async function HomeFeed() {
   // Get username for each fid
   if (unfollows.length > 0){
     for (let i=0; i<unfollows.length; i++){
-      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
-      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].target_fid}`, { method: "GET" });
+      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
+      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&fid=${unfollows[i].target_fid}`, { method: "GET" });
       
       const user1Response = await getUser1.json();
       const user2Response = await getUser2.json();

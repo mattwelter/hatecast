@@ -30,8 +30,8 @@ export default async function UserFeed(fid: any) {
   // Get username for each fid
   if (unfollows.length > 0){
     for (let i=0; i<unfollows.length; i++){
-      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
-      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEYNAR_API_KEY}&fid=${unfollows[i].target_fid}`, { method: "GET" });
+      const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&fid=${unfollows[i].fid}`, { method: "GET" });
+      const getUser2 = await fetch(`https://api.neynar.com/v1/farcaster/user/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&fid=${unfollows[i].target_fid}`, { method: "GET" });
       
       const user1Response = await getUser1.json();
       const user2Response = await getUser2.json();
@@ -46,7 +46,7 @@ export default async function UserFeed(fid: any) {
        {unfollows.length != 0 ? unfollows.map((event: any) => (
         <div className="unfollowCard">
             <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
-            <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
+            <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @{ event.user2_username }</h3>
         </div>
         )) : <div className="unfollowCard">
             <a>Oops!</a>
