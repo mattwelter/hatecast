@@ -1,19 +1,10 @@
 import moment from 'moment'
 import sql from '../db.js'
+import { getHomeFeed } from './getHomeFeed'
 
 export default async function HomeFeed() {
 
-  async function getUnfollows() {
-    const data = await sql`
-        SELECT *
-        FROM links
-        WHERE deleted_at IS NOT null
-        ORDER BY deleted_at DESC
-        LIMIT 10;
-      `
-    return data
-  }
-  const unfollows = await getUnfollows()
+  const unfollows = await getHomeFeed()
 
   // Sort unfollows by "Most recent" first
   unfollows.sort(function(a: any, b: any){
