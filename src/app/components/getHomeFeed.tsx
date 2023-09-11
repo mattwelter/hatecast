@@ -3,8 +3,6 @@ import { cache } from 'react'
 
 export const revalidate = 30;
 
-export const dynamic = 'force-dynamic';
-
 export const getHomeFeed = cache(async () => {
     const data = await sql`
         SELECT *

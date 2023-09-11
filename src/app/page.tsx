@@ -6,6 +6,8 @@ import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
 import Head from 'next/head'
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
 
   return (
