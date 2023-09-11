@@ -4,11 +4,19 @@ import { Suspense } from 'react'
 import HomeFeed from './components/HomeFeed'
 import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
+import Head from 'next/head'
 
 export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Head>
+        <title>Hatecast</title>
+        <meta name="description" content="Reveal your unfollowers on Farcaster" key="desc" />
+        <meta property="og:title" content="Hatecast - Reveal your unfollowers on Farcaster" />
+        <meta property="og:description" content="Reveal your unfollowers on Farcaster" />
+        <meta property="og:image" content="/og_image.png" />
+      </Head>
       <div className="header">
         <div>
           <section className="header_h1">
