@@ -35,8 +35,6 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/images/hatecast_favicon.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/images/hatecast_favicon.png"/>
         <link rel="icon" type="image/x-icon" href="/images/hatecast_favicon.png" />
-
-        <meta property="og:image" content="/" />
       </head>
       <html lang="en" className={inter.className}>
         <body>{children}</body>
