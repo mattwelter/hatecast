@@ -2,21 +2,20 @@ import moment from 'moment'
 import sql from '../db.js'
 
 export default async function HomeFeed() {
-  console.log("1 -", Date.now())
 
   async function getUnfollows() {
     const data = await sql`
-        SELECT *
-        FROM links
-        WHERE deleted_at IS NOT null
-        ORDER BY deleted_at DESC
-        LIMIT 10;
+      SELECT *
+      FROM links
+      WHERE target_fid = 3
+      AND deleted_at IS NOT null
+      ORDER BY deleted_at DESC
+      LIMIT 10;
       `
-      console.log("2 -", Date.now())
     return data
   }
   const unfollows = await getUnfollows()
-  console.log("3 -", Date.now())
+
   // Sort unfollows by "Most recent" first
   unfollows.sort(function(a: any, b: any){
     return new Date(b.deleted_at).valueOf() - new Date(a.deleted_at).valueOf();
@@ -41,8 +40,6 @@ export default async function HomeFeed() {
       unfollows[i].user2_username = user2Response.result.user.username;
     }
   }
-
-  console.log("4 -", Date.now())
 
   return (
     <>
