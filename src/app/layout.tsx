@@ -22,8 +22,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>{children}</body>
-    </html>
+    <>
+      <head>
+        <title>Hatecaster</title>
+        <meta name="description" content="Reveal your unfollowers."/>
+        <meta property="og:title" content="Social Title for Cool Page" />
+        <meta property="og:description" content="Reveal your unfollowers."/>
+        <meta property="og:image" content="https://example.com/images/cool-page.jpg" />
+      </head>
+      <html lang="en" className={inter.className}>
+        <body>{children}</body>
+      </html>
+    </>
   )
 }
