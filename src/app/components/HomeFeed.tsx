@@ -5,12 +5,11 @@ export default async function HomeFeed() {
 
   async function getUnfollows() {
     const data = await sql`
-      SELECT *
-      FROM links
-      WHERE target_fid = 3
-      AND deleted_at IS NOT null
-      ORDER BY deleted_at DESC
-      LIMIT 10;
+        SELECT *
+        FROM links
+        WHERE deleted_at IS NOT null
+        ORDER BY deleted_at DESC
+        LIMIT 10;
       `
     return data
   }
