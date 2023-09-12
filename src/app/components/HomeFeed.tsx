@@ -1,5 +1,6 @@
 import moment from 'moment'
 import sql from '../db.js'
+import { DateTime } from "luxon";
 
 export default async function HomeFeed() {
 
@@ -22,9 +23,11 @@ export default async function HomeFeed() {
   });
 
   for(let i=0; i<unfollows.length; i++){
-    let d = new Date(unfollows[i].deleted_at).toISOString()
-    let date = new Date(d).toLocaleTimeString()
-    unfollows[i].local_date = date
+    let event_utc = DateTime.fromISO(new Date().toISOString());
+    let now = DateTime.local().setZone('utc')
+    const diff = now.diff(event_utc, 'seconds');
+    `${Math.floor(diff.seconds)} seconds ago`;
+    unfollows[i].local_date = `${Math.floor(diff.seconds)} hours ago`
   }
 
   // Get username for each fid
@@ -46,7 +49,7 @@ export default async function HomeFeed() {
        {unfollows.length != 0 ? unfollows.map((event: any) => (
 
           <div className="unfollowCard">
-            <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
+            <a>{ event.local_date }</a>
             <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
           </div>
           )) :
