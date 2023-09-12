@@ -5,7 +5,6 @@ import HomeFeed from './components/HomeFeed'
 import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
 import Head from 'next/head'
-import DateTest from './components/DateTest'
 
 export const dynamic = 'force-dynamic';
 
@@ -20,7 +19,6 @@ export default function Home() {
         <meta property="og:description" content="Reveal your unfollowers on Farcaster" />
         <meta property="og:image" content="/og_image.png" />
       </Head>
-      <DateTest />
       <div className="header">
         <div>
           <section className="header_h1">

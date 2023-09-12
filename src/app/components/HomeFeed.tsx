@@ -44,14 +44,19 @@ export default async function HomeFeed() {
   return (
     <>
        {unfollows.length != 0 ? unfollows.map((event: any) => (
-            <div className="unfollowCard">
-              <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
-              <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
-            </div>
-          )) : <div className="unfollowCard">
+
+          <div className="unfollowCard">
+            <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
+            <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
+          </div>
+          )) :
+          
+          <div className="unfollowCard">
             <a>Oops!</a>
             <h3>Looks like no one unfollowed you.</h3>
-          </div>}
+          </div>
+          
+        }
     </>
     )
 }
