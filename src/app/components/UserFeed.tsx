@@ -22,8 +22,8 @@ export default async function UserFeed(fid: any) {
   });
 
   for(let i=0; i<unfollows.length; i++){
-    let hours = new Date(unfollows[i].deleted_at).getHours();
-    let date = new Date(unfollows[i].deleted_at).setHours(hours-7)
+    let d = new Date(unfollows[i].deleted_at).toISOString()
+    let date = new Date(d).toLocaleTimeString()
     unfollows[i].local_date = date
   }
 
