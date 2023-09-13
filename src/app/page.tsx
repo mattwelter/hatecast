@@ -17,7 +17,6 @@ export default function Home() {
         <meta name="description" content="Reveal your unfollowers on Farcaster" key="desc" />
         <meta property="og:title" content="Hatecast - Reveal your unfollowers on Farcaster" />
         <meta property="og:description" content="Reveal your unfollowers on Farcaster" />
-        <meta property="og:image" content="/og_image.png" />
       </Head>
       <div className="header">
         <div>
