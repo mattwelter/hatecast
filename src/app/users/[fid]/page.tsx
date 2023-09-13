@@ -21,7 +21,7 @@ export default async function Page({ params }: {
                 <Suspense fallback={<LoadingFeed />}>
                     <UserFeed fid={params.fid} />
                 </Suspense>
-                <a className="noMoreCaption">No more unfollows!</a>
+                <a className="noMoreCaption">No more unfollows</a>
                 <a className="mostRecentCaption">Only showing 10 most recent</a>
             </div>
         </main>
