@@ -23,11 +23,9 @@ export default async function HomeFeed() {
   });
 
   for(let i=0; i<unfollows.length; i++){
-    let event_utc = DateTime.fromISO(new Date().toISOString());
-    let now = DateTime.local().setZone('utc')
-    const diff = now.diff(event_utc, 'seconds');
-    `${Math.floor(diff.seconds)} seconds ago`;
-    unfollows[i].local_date = `${Math.floor(diff.seconds)} hours ago`
+    let d = new Date(unfollows[i].deleted_at).toISOString()
+    let event_utc = DateTime.fromISO(d);
+    unfollows[i].local_date = `${event_utc.toRelative()}`
   }
 
   // Get username for each fid
