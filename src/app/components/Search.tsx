@@ -1,7 +1,7 @@
 'use client'
  
 import { useState } from 'react';
-import { postSearch } from './postSearch'
+import { useRouter } from 'next/navigation'
  
 export default function Page() {
 
@@ -12,9 +12,12 @@ export default function Page() {
   };
 
   const buttonClick = async () => {
+    const router = useRouter()
     console.log(username)
     var string = username.replaceAll(" ", "").replaceAll("@", "")
-    return await postSearch(string)
+    const getUser = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=${process.env.NEYNAR_API_KEY}&username=${username}`, { method: "GET" });
+    const userResponse = await getUser.json();
+    router.push(`/users/${userResponse.result.user.fid}`)
   };
  
   return (
