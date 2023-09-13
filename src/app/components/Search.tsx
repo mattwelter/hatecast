@@ -1,31 +1,36 @@
 'use client'
- 
-import { useRouter } from 'next/navigation'
-import { useState } from 'react';
- 
+
+import { useState } from 'react'
+import { redirect } from 'next/navigation'
+import { searchUsername } from '../actions'
+
 export default function Page() {
-  const router = useRouter()
+  const [username, setUsername] = useState<string>('')
 
-  const [username, updateUsername] = useState<string>('');
+  async function handleSearch(formData: FormData) {
+    const res = await searchUsername(formData)
+    const user = res.result.user
 
-  const setUsername = (event: any) => {
-    updateUsername(event.target.value);
-  };
+    if (!user) {
+      return alert('No user found')
+    }
 
-  const buttonClick = async () => {
-    console.log(username)
-    var string = username.replaceAll(" ", "").replaceAll("@", "")
-    const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&username=${string}`, { method: "GET" });
-    const user1Response = await getUser1.json();
-    console.log(user1Response)
-    router.push(`/users/${user1Response.result.user.fid}`)
-  };
- 
+    return redirect(`/users/${res.result.user.fid}`)
+  }
+
   return (
     <div className="search">
-      <form>
-        <input id="searchUsernameFid" name="searchUsernameFid" placeholder="Search by username" onChange={setUsername} value={username}/>
-        <button type="button" disabled={!username} onClick={buttonClick}>Check User</button>
+      <form action={handleSearch}>
+        <input
+          id="username"
+          name="username"
+          placeholder="Search by username"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+
+        <button type="submit" disabled={!username}>
+          Check User
+        </button>
       </form>
       <a>Search by fid, or ENS, is not supported.</a>
     </div>

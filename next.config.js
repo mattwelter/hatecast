@@ -7,9 +7,9 @@ const nextConfig = {
         rgister: true,
         skipWaiting: true,
     }),
-    publicRuntimeConfig: {
-        NEXT_PUBLIC_NEYNAR_API_KEY: "91A1C66F-B750-4790-B81F-D11822764EAE",
-    }
+    experimental: {
+        serverActions: true,
+    },
 }
 
 module.exports = nextConfig
