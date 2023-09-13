@@ -13,6 +13,7 @@
     "@prisma/client": "^5.2.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@vercel/analytics": "^1.0.2",
     "luxon": "^3.4.3",
     "moment": "^2.29.4",
     "momentjs": "^2.0.0",
