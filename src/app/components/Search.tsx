@@ -32,7 +32,7 @@ export default function Page() {
           Check User
         </button>
       </form>
-      <a>Search by fid, or ENS, is not supported.</a>
+      <a>Search by fid or ENS is not supported.</a>
     </div>
   )
 }
