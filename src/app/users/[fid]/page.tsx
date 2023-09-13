@@ -14,7 +14,9 @@ export default async function Page({ params }: {
         <main>
             <a className="backButton" href="/">Back Home</a>
             <div className="header userFeedHeader">
-                <h1>{ user ? "@" + user.username : params.fid }</h1>
+            <h1>
+                <a href={`https://warpcast.com/${user.username}`}>{user ? `@${user.username}` : params.fid}</a>
+            </h1>
             </div>
             <div>
                 <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
