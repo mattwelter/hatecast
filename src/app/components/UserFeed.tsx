@@ -1,4 +1,4 @@
-import moment from 'moment'
+import { DateTime } from "luxon";
 import sql from '../db.js'
 
 export default async function UserFeed(fid: any) {
@@ -23,8 +23,8 @@ export default async function UserFeed(fid: any) {
 
   for(let i=0; i<unfollows.length; i++){
     let d = new Date(unfollows[i].deleted_at).toISOString()
-    let date = new Date(d).toLocaleTimeString()
-    unfollows[i].local_date = date
+    let event_utc = DateTime.fromISO(d);
+    unfollows[i].local_date = `${event_utc.toRelative()}`
   }
 
   // Get username for each fid
@@ -45,7 +45,7 @@ export default async function UserFeed(fid: any) {
     <>
        {unfollows.length != 0 ? unfollows.map((event: any) => (
         <div className="unfollowCard">
-            <a>{ moment(event.local_date).startOf('minute').fromNow() }</a>
+            <a>{ event.local_date }</a>
             <h3>@<a href={"/users/" + event.fid}>{ event.user1_username }</a> unfollowed @{ event.user2_username }</h3>
         </div>
         )) : <div className="unfollowCard">

@@ -1,9 +1,10 @@
 'use client'
  
-import { useState } from 'react';
 import { useRouter } from 'next/navigation'
+import { useState } from 'react';
  
 export default function Page() {
+  const router = useRouter()
 
   const [username, updateUsername] = useState<string>('');
 
@@ -12,12 +13,12 @@ export default function Page() {
   };
 
   const buttonClick = async () => {
-    const router = useRouter()
     console.log(username)
     var string = username.replaceAll(" ", "").replaceAll("@", "")
-    const getUser = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=${process.env.NEYNAR_API_KEY}&username=${username}`, { method: "GET" });
-    const userResponse = await getUser.json();
-    router.push(`/users/${userResponse.result.user.fid}`)
+    const getUser1 = await fetch(`https://api.neynar.com/v1/farcaster/user-by-username/?api_key=${process.env.NEXT_PUBLIC_NEYNAR_API_KEY}&username=${string}`, { method: "GET" });
+    const user1Response = await getUser1.json();
+    console.log(user1Response)
+    router.push(`/users/${user1Response.result.user.fid}`)
   };
  
   return (
