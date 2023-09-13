@@ -6,7 +6,10 @@ const nextConfig = {
         dest: 'public',
         rgister: true,
         skipWaiting: true,
-    })
+    }),
+    experimental: {
+        serverActions: true,
+    },
 }
 
 module.exports = nextConfig
