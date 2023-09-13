@@ -110,13 +110,13 @@ main {
 }
 
 .backButton {
-    color: #d4c3eb;
+    color: #b2a2c8;
     font-size: 14px;
     margin-top: 24px;
     display: block;
     transition: 0.125s ease-in;
-    padding: 4px 10px;
-    background: #624f9c;
+    padding: 6px 12px;
+    background: #3b3550;
     width: fit-content;
     border-radius: 2px;
 }
@@ -124,7 +124,7 @@ main {
 .backButton:hover {
     /* text-decoration: underline; */
     color: #d1b9f1;
-    background: #3b3550;
+    background: #624f9c;
     transition: 0.125s ease-in;
 }
 
