@@ -41,7 +41,7 @@ export default async function Page({ params }: {
             </h1>
             </div>
             <div>
-                <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
+                <h2 className="recentlyUnfollowed">Recent unfollow activitiy</h2>
                 <Suspense fallback={<LoadingFeed />}>
                     <UserFeed fid={params.fid} />
                 </Suspense>
