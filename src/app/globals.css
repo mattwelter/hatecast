@@ -119,6 +119,7 @@ main {
     background: #3b3550;
     width: fit-content;
     border-radius: 2px;
+    display: inline;
 }
 
 .backButton:hover {
@@ -126,6 +127,34 @@ main {
     color: #d1b9f1;
     background: #624f9c;
     transition: 0.125s ease-in;
+}
+
+.viewOnWarpcast {
+    color: #9b93a7;
+    font-size: 14px;
+    display: block;
+    transition: 0.125s ease-in;
+    padding: 6px 12px;
+    background: #25222e;
+    width: fit-content;
+    border-radius: 2px;
+    float: right;
+    border: 1px solid #38333e;
+    margin-top: -4px;
+}
+
+.viewOnWarpcast:hover {
+    color: #d1b9f1;
+    background: #624f9c;
+    transition: 0.125s ease-in;
+}
+
+.viewOnWarpcast svg {
+    display: inline;
+    filter: invert(82%) sepia(62%) saturate(1235%) hue-rotate(191deg) brightness(101%) contrast(28%);
+    margin-top: -3px;
+    margin-left: 4px;
+    margin-right: -4px;
 }
 
 .header form {
