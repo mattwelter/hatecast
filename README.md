@@ -1,4 +1,4 @@
-![](https://i.imgur.com/aVOuOmB.png)
+![banner-1](https://i.imgur.com/aVOuOmB.png)
 # Hatecast.xyz
 ![](https://img.shields.io/github/last-commit/mattwelter/hatecast)
 
