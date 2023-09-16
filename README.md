@@ -1,4 +1,7 @@
+![](https://i.imgur.com/wEvWK2y.png)
 # Hatecast.xyz
+![](https://img.shields.io/github/last-commit/mattwelter/hatecast)
+
 Hatecast is a web app that allows anybody to see who unfollowed you on the Farcaster protocol.
 
 ## Getting Started
