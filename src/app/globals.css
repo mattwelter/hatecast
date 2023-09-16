@@ -225,7 +225,7 @@ main {
       padding: 0px 8px;
     }
     .backButton {
-        margin-left: 8px;
+        /* margin-left: 8px; */
     }
     .unfollowCard {
         border-radius: 0px;
