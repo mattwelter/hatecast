@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
@@ -9,14 +8,6 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-export const metadata: Metadata = {
-  title: 'Hatecast - Reveal your unfollowers',
-  description: 'Reveal your unfollowers',
-  manifest: '/manifest.json',
-  icons: { apple: '/hatecast_logo.png' },
-  themeColor: '#1B1A1F'
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -25,7 +16,6 @@ export default function RootLayout({
   return (
     <>
       <head>
-        <title>Hatecast</title>
         <meta name="description" content="Reveal your unfollowers."/>
         <meta property="og:title" content="Hatecast - Reveal your unfollowers" />
         <meta property="og:description" content="Reveal your unfollowers."/>

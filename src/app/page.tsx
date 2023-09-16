@@ -5,6 +5,18 @@ import HomeFeed from './components/HomeFeed'
 import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
 import Head from 'next/head'
+import type { Metadata } from 'next'
+
+
+   
+export const metadata: Metadata = {
+  title: `Hatecast`,
+  description: 'Hatecast - Reveal your unfollowers on Farcaster',
+  manifest: '/manifest.json',
+  icons: { apple: '/hatecast_logo.png' },
+  themeColor: '#1B1A1F'
+}
+
 
 export const dynamic = 'force-dynamic';
 
@@ -24,7 +36,7 @@ export default function Home() {
             <Image id="h1_logo" src="/hatecast_logo.png" alt="Hatecast logo" width="42" height="42" />
             <h1>Hatecast</h1>
           </section>
-          <p>Stay informed. Reveal your unfollowers.</p>
+          <p>Reveal your unfollowers on Farcaster.</p>
         </div>
         <Suspense fallback={<p>Loading search...</p>}>
           <Search />
