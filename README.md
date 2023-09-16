@@ -4,6 +4,13 @@
 
 Hatecast is a web app that allows anybody to see who unfollowed you on the Farcaster protocol.
 
+## To-do
+- [x] Home feed of public unfollows
+- [x] User pages
+- - [x] Feed of users who unfollowed the user
+- - [ ] Feed of users who user unfollowed
+- - [ ] Link to view "User on Warpcast"
+
 ## Getting Started
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
