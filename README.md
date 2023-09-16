@@ -10,6 +10,12 @@ Hatecast is a web app that allows anybody to see who unfollowed you on the Farca
 - - [x] Feed of users who unfollowed the user
 - - [ ] Feed of users who user unfollowed
 - - [ ] Link to view "User on Warpcast"
+- [ ] Loading progress bar between switching pages, using nprogress
+- [ ] Analytics page
+- - [ ] "Most unfollowed in past 24 hours"
+- - [ ] "Most unfollowed in past 7 days"
+- [x] Search for users by username
+- - [ ] Auto-complete search
 
 ## Getting Started
 
