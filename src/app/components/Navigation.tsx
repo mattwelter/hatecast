@@ -6,7 +6,7 @@ export default async function Analytics7Day() {
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/analytics">Analytics</a></li>
+                    <li><a href="/trending">Trending</a></li>
                 </ul>
             </nav>
         </div>
