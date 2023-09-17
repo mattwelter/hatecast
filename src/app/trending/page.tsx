@@ -4,6 +4,15 @@ import Analytics30Day from '../components/Analytics30Day'
 import LoadingFeed from '../components/LoadingFeed'
 import Navigation from '../components/Navigation'
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: `Hatecast - Trending`,
+  description: 'Hatecast - Reveal your unfollowers on Farcaster',
+  manifest: '/manifest.json',
+  icons: { apple: '/hatecast_logo.png' },
+  themeColor: '#1B1A1F'
+}
 
 export default async function Page() {
 
