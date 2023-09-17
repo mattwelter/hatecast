@@ -2,13 +2,14 @@ import Analytics1Day from './../components/Analytics1Day'
 import Analytics7Day from './../components/Analytics7Day'
 import Analytics30Day from './../components/Analytics30Day'
 import LoadingFeed from './../components/LoadingFeed'
+import Navigation from './../components/Navigation'
 import { Suspense } from 'react'
 
 export default async function Page() {
 
     return (
         <main>
-            <a className="backButton" href="/">Back Home</a>
+            <Navigation />
             <div className="header userFeedHeader">
                 <h1>Analytics</h1>
             </div>

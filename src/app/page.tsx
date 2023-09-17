@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import HomeFeed from './components/HomeFeed'
 import LoadingFeed from './components/LoadingFeed'
 import Search from './components/Search'
+import Navigation from './components/Navigation'
 import Head from 'next/head'
 import type { Metadata } from 'next'
 
@@ -30,6 +31,7 @@ export default function Home() {
         <meta property="og:title" content="Hatecast - Reveal your unfollowers on Farcaster" />
         <meta property="og:description" content="Reveal your unfollowers on Farcaster" />
       </Head>
+      <Navigation />
       <div className="header">
         <div>
           <section className="header_h1">

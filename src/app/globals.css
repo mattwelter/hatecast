@@ -18,6 +18,29 @@ main {
     margin-top: 48px;
 }
 
+.navigation ul li {
+    display: inline;
+}
+
+.navigation ul li a {
+    display: inline;
+    color: #b2a2c8;
+    font-size: 14px;
+    margin-top: 24px;
+    margin-right: 8px;
+    transition: 0.125s ease-in;
+    padding: 8px 12px;
+    background: #3b3550;
+    width: fit-content;
+    border-radius: 2px;
+}
+
+.navigation ul a:hover {
+    color: #d1b9f1;
+    background: #624f9c;
+    transition: 0.125s ease-in;
+}
+
 .header {
     padding: 50px 0px;
 }
@@ -140,7 +163,7 @@ main {
     border-radius: 2px;
     float: right;
     border: 1px solid #38333e;
-    margin-top: -4px;
+    margin-top: -28px;
 }
 
 .viewOnWarpcast:hover {
