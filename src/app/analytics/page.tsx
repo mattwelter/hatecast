@@ -11,12 +11,12 @@ export default async function Page() {
         <main>
             <Navigation />
             <div className="header userFeedHeader">
-                <h1>Analytics</h1>
+                <h1>Most unfollowed in 7 days</h1>
             </div>
             <div>
-                <h2 className="recentlyUnfollowed">Most unfollowed in 7 days</h2>
+                {/* <h2 className="recentlyUnfollowed">Most unfollowed in 7 days</h2> */}
                 <Suspense fallback={<LoadingFeed />}>
-                    <Analytics30Day />
+                    <Analytics7Day />
                 </Suspense>
                 <a className="noMoreCaption">No more unfollows</a>
                 <a className="mostRecentCaption">Only showing 10 most recent</a>
