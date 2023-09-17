@@ -50,6 +50,10 @@ main {
     margin-top: 40px;
 }
 
+.homepageHeader {
+    margin-top: 32px !important;
+}
+
 .header_h1 {
     display: flex;
     height: 42px;

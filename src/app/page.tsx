@@ -32,7 +32,7 @@ export default function Home() {
         <meta property="og:description" content="Reveal your unfollowers on Farcaster" />
       </Head>
       <Navigation />
-      <div className="header">
+      <div className="header homepageHeader">
         <div>
           <section className="header_h1">
             <Image id="h1_logo" src="/hatecast_logo.png" alt="Hatecast logo" width="42" height="42" />
