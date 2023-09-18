@@ -1,12 +1,12 @@
 import sql from '../db.js'
 
-export default async function Analytics7Day() {
+export default async function Trending7Day() {
 
   const getFeed = async function(){
     const data = await sql`
         SELECT target_fid, COUNT(target_fid) AS occurrence_count
         FROM links
-        WHERE deleted_at >= NOW() - INTERVAL '7 days'
+        WHERE deleted_at >= NOW() - INTERVAL '24 hours'
         GROUP BY target_fid
         ORDER BY occurrence_count DESC
         LIMIT 10;

@@ -2,3 +2,9 @@
     color: #d1b9f1 !important;
     background: #624f9c !important;
 }
+
+.selectedTrendingTab {
+    background: #ece8ff !important;
+    color: black !important;
+    font-weight: 500 !important;
+}

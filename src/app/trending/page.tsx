@@ -1,9 +1,9 @@
 import TrendingTabs from '../components/TrendingTabs'
 import LoadingFeed from '../components/LoadingFeed'
 import Navigation from '../components/Navigation'
-import Analytics1Day from '../components/Analytics1Day'
-import Analytics7Day from '../components/Analytics7Day'
-import Analytics30Day from '../components/Analytics30Day'
+import Trending1Day from '../components/Trending1Day'
+import Trending7Day from '../components/Trending7Day'
+import Trending30Day from '../components/Trending30Day'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
@@ -29,10 +29,11 @@ export default async function Page() {
                 </div>
                 <Suspense fallback={<LoadingFeed />}>
                     <TrendingTabs>
-                        <Analytics1Day />
+                        <Trending1Day />
+                        <Trending7Day />
+                        <Trending30Day />
                     </TrendingTabs>
                 </Suspense>
-                <a className="noMoreCaption">No more unfollows</a>
                 <a className="mostRecentCaption">Only showing 10 most recent</a>
             </div>
         </main>

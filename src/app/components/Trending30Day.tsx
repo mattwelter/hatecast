@@ -1,6 +1,6 @@
 import sql from '../db.js'
 
-export default async function Analytics7Day() {
+export default async function Trending7Day() {
 
   const getFeed = async function(){
     const data = await sql`
