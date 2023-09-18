@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   themeColor: '#1B1A1F'
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
 
     return (
