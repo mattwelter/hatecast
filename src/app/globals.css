@@ -50,6 +50,24 @@ main {
     margin-top: 40px;
 }
 
+.userFeedHeader h1 {
+    font-size: 32px;
+    margin: 8px 0px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.userFeedHeader h2 {
+    font-size: 17px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    color: #f0f5ff;
+}
+
 .homepageHeader {
     margin-top: 32px !important;
 }
@@ -245,6 +263,30 @@ main {
 
 ::-webkit-input-placeholder {
    color: rgb(174, 170, 199) !important;
+}
+
+.trendingButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trendingButtons .buttonDiv {
+    flex: 1;
+}
+
+.trendingButtons button {
+    text-align: center;
+    width: -webkit-fill-available;
+    padding: 8px 8px;
+    margin: 0px 2px;
+    background-color: #9894a5;
+    color: #fff;
+    border-radius: 4px;
+    transition: 0.125s ease-in;
+}
+
+.trendingButtons button:hover {
+    background-color: #635e70;
 }
 
 @media only screen and (max-width: 600px) {

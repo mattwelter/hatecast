@@ -8,8 +8,6 @@ import Navigation from './components/Navigation'
 import Head from 'next/head'
 import type { Metadata } from 'next'
 
-
-   
 export const metadata: Metadata = {
   title: `Hatecast`,
   description: 'Hatecast - Reveal your unfollowers on Farcaster',
@@ -17,7 +15,6 @@ export const metadata: Metadata = {
   icons: { apple: '/hatecast_logo.png' },
   themeColor: '#1B1A1F'
 }
-
 
 export const dynamic = 'force-dynamic';
 
