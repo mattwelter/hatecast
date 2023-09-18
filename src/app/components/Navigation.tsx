@@ -1,6 +1,6 @@
 "use client";
 
-import style from '../css/HomePage.module.css'
+import style from '../css/Navigation.module.css'
 import { usePathname } from 'next/navigation'
 
 
