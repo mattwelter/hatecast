@@ -1,4 +1,4 @@
-.navigation[href="https://hatecast.xyz/"] ul li:nth-child(0) a {
+.selectedTab {
     color: #d1b9f1 !important;
     background: #624f9c !important;
 }
