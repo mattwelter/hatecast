@@ -24,9 +24,9 @@ main {
 
 .navigation ul li a {
     display: inline;
-    color: rgb(220, 219, 223);
+    color: rgb(170, 167, 179);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 0.6px;
     margin-top: 24px;
     margin-right: 16px;
@@ -111,7 +111,7 @@ main {
     background-color: #252432;
     text-align: center;
     margin: 12px 0px;
-    padding: 18px 0px 24px 0px;
+    padding: 18px 0px 26px 0px;
     border-radius: 4px;
 }
 
@@ -284,6 +284,7 @@ main {
     margin: 0px 0px;
     color: #9b98a6;
     transition: 0.125s ease-in;
+    font-weight: 300;
 }
 
 .trendingButtons button:hover {
