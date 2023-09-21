@@ -1,10 +1,10 @@
 .selectedTab {
-    color: #d1b9f1 !important;
-    background: #624f9c !important;
+    color: #efe2ff !important;
+    /* background: #624f9c !important; */
 }
 
 .selectedTrendingTab {
-    background: #ece8ff !important;
-    color: black !important;
+    color: #fafafa !important; 
+    border-top: 1px solid;
     font-weight: 500 !important;
 }

@@ -27,17 +27,19 @@ main {
     color: #b2a2c8;
     font-size: 14px;
     margin-top: 24px;
-    margin-right: 8px;
+    margin-right: 16px;
     transition: 0.125s ease-in;
-    padding: 8px 12px;
-    background: #3b3550;
+    padding: 4px 0px;
+    width: -moz-fit-content;
     width: fit-content;
     border-radius: 2px;
+    border-bottom: 2px solid;
+    font-weight: 500;
 }
 
 .navigation ul a:hover {
-    color: #d1b9f1;
-    background: #624f9c;
+    opacity: 0.65;
+    padding: 8px 0px;
     transition: 0.125s ease-in;
 }
 
@@ -106,15 +108,15 @@ main {
 }
 
 .unfollowCard {
-    background-color: #282538;
+    background-color: #252432;
     text-align: center;
     margin: 12px 0px;
-    padding: 24px 24px 36px 24px;
+    padding: 12px 0px 20px 0px;
     border-radius: 4px;
 }
 
 .unfollowCard > a {
-    color: #C9ADED;
+    color: #807d95;
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -129,19 +131,19 @@ main {
 .unfollowCard h3 {
     color: #FFF;
     text-align: center;
-    font-size: 17px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 150%;
-    letter-spacing: 0.68px;
-    padding-top: 8px;
+    letter-spacing: 0.9px;
+    padding-top: 4px;
 }
 
 .unfollowCard h3 a {
     /* text-decoration-line: underline; */
     transition: 0.125s ease;
-    padding-bottom: 1px;
-    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+    border-bottom: 1px solid white
 }
 
 .noMoreCaption, .mostRecentCaption {
@@ -277,16 +279,14 @@ main {
 .trendingButtons button {
     text-align: center;
     width: -webkit-fill-available;
-    padding: 8px 8px;
-    margin: 0px 2px;
-    background-color: #9894a5;
-    color: #fff;
-    border-radius: 4px;
+    padding: 12px 4px 2px 4px;
+    margin: 0px 0px;
+    color: #9b98a6;
     transition: 0.125s ease-in;
 }
 
 .trendingButtons button:hover {
-    background-color: #635e70;
+    opacity: 0.65;
 }
 
 @media only screen and (max-width: 600px) {

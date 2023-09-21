@@ -44,7 +44,6 @@ export default async function Page({ params }: {
                 <h1>{ user ? "@" + user.username : params.fid }</h1>
             </div>
             <div>
-                <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
                 <Suspense fallback={<LoadingFeed />}>
                     <UserFeed fid={params.fid} />
                 </Suspense>

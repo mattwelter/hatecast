@@ -42,7 +42,6 @@ export default function Home() {
         </Suspense>
       </div>
       <div>
-        <h2 className="recentlyUnfollowed">Recently unfollowed</h2>
         <Suspense fallback={<LoadingFeed />}>
           <HomeFeed />
         </Suspense>
