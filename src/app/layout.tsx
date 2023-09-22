@@ -24,10 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <>
+      <head>
+        <script defer data-domain="hatecast.xyz" src="https://plausible.io/js/script.js"></script>
+      </head>
       <html lang="en" className={inter.className}>
-        <head>
-          <script defer data-domain="hatecast.xyz" src="https://plausible.io/js/script.js"></script>
-        </head>
         <body>{children}</body>
         <Analytics />
       </html>
