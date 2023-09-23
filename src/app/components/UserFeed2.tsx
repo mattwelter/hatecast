@@ -50,7 +50,7 @@ export default async function UserFeed(fid: any) {
         </div>
         )) : <div className="unfollowCard">
             <a>Oops!</a>
-            <h3>Looks like no one unfollowed you.</h3>
+            <h3>This user hasn't unfollowed anybody</h3>
         </div>}
     </>
     )
