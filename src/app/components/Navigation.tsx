@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 export default function Navigation() {
 
     const pathname = usePathname()
-    let home = pathname == "/" ? style.selectedTab : ""
+    let home = pathname == "/" ? style.selectedTab : (pathname.includes("/users/") ? style.selectedTab : "")
     let trending = pathname == "/trending" ? style.selectedTab : ""
 
     return (

@@ -1,6 +1,8 @@
 import UserFeed from '../../components/UserFeed'
+import UserFeed2 from '../../components/UserFeed2'
 import LoadingFeed from '../../components/LoadingFeed'
 import Navigation from '../../components/Navigation'
+import ProfileTabs from '../../components/ProfileTabs'
 import { Suspense } from 'react'
 import type { Metadata, ResolvingMetadata } from 'next'
 
@@ -45,7 +47,10 @@ export default async function Page({ params }: {
             </div>
             <div>
                 <Suspense fallback={<LoadingFeed />}>
-                    <UserFeed fid={params.fid} />
+                    <ProfileTabs>
+                        <UserFeed fid={params.fid} />
+                        <UserFeed2 fid={params.fid} />
+                    </ProfileTabs>
                 </Suspense>
                 <a className="noMoreCaption">No more unfollows</a>
                 <a className="mostRecentCaption">Only showing 10 most recent</a>
