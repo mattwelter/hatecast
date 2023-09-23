@@ -46,7 +46,7 @@ export default async function UserFeed(fid: any) {
        {unfollows.length != 0 ? unfollows.map((event: any) => (
         <div className="unfollowCard">
             <a>{ event.local_date }</a>
-            <h3>@{ event.user1_username } unfollowed @<a href={"/users/" + event.fid}>{ event.user2_username }</a></h3>
+            <h3>@{ event.user1_username } unfollowed @<a href={"/users/" + event.target_fid}>{ event.user2_username }</a></h3>
         </div>
         )) : <div className="unfollowCard">
             <a>Oops!</a>
