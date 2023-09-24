@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react';
+// import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
 import type { Metadata } from 'next'
+import PlausibleProvider from 'next-plausible'
 
 export const metadata: Metadata = {
   title: `Hatecast`,
@@ -25,8 +26,10 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" className={inter.className}>
-        <body>{children}</body>
-        <Analytics />
+        <PlausibleProvider domain="example.com">
+          <body>{children}</body>
+        </PlausibleProvider>
+        {/* <Analytics /> */}
       </html>
     </>
   )
