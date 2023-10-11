@@ -1,17 +1,17 @@
 import { DateTime } from "luxon";
-import sql from '../db.js'
+import db from '../api/db'
 
 export default async function UserFeed(fid: any) {
 
   async function getUnfollows() {
-    const data = await sql`
+    const data = await db(`
         SELECT *
         FROM links
         WHERE target_fid = ${fid.fid}
         AND deleted_at IS NOT null
         ORDER BY deleted_at DESC
         LIMIT 10;
-      `
+      `)
     return data
   }
   const unfollows = await getUnfollows()

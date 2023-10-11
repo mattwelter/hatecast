@@ -1,16 +1,16 @@
-import sql from '../db.js'
+import db from '../api/db'
 import { DateTime } from "luxon";
 
 export default async function HomeFeed() {
 
   const getHomeFeed = async function(){
-    const data = await sql`
+    const data = await db(`
         SELECT *
         FROM links
         WHERE deleted_at IS NOT null
         ORDER BY deleted_at DESC
         LIMIT 10;
-      `
+      `)
     return data
   }
 
