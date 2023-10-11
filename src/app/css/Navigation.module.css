@@ -6,6 +6,7 @@
 
 .selectedTrendingTab {
     color: #FAFAFA !important; 
-    border-top: 1px solid;
+    border-top: 1px solid #8683a9;
     font-weight: 500 !important;
+    background-color: #252432;
 }
