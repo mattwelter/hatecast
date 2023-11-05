@@ -10,7 +10,7 @@ export default async function UserFeed(fid: any) {
         WHERE fid = ${fid.fid}
         AND deleted_at IS NOT null
         ORDER BY deleted_at DESC
-        LIMIT 10;
+        LIMIT 20;
       `)
     return data
   }
